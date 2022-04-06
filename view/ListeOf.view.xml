@@ -1,0 +1,106 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:ux="sap.uxap" controllerName="com.ms.pp.Weighing.controller.ListeOf" xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:tnt="sap.tnt">
+	<Page showHeader="true" title="Liste des Ordres disponibles" showFooter="false" showNavButton="false">
+		<content>
+			<!--<tnt:ToolHeader height="6rem" style="Clear">
+				<Image src="{imageModel>/path}/img/logo_ms_cosmetics.png" width="5rem" class='imgBackground'></Image>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+				<Text text="Liste des Ordres disponibles" wrapping="false" class='textTitle'></Text>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+			</tnt:ToolHeader>-->
+			<IconTabBar id="iconTabBar" expandable="false" expanded="true" applyContentPadding="false" backgroundDesign="Solid" upperCase="false"
+				visible="true" select="handleIconTabBarSelect">
+				<items>
+					<IconTabFilter iconColor="Default" text="Tous" count="0" design="Vertical" showAll="false" textDirection="Inherit" enabled="true"
+						visible="true" iconDensityAware="false" key="All"></IconTabFilter>
+					<IconTabFilter iconColor="Default" text="Pesée en cours" count="0" design="Vertical" showAll="false" textDirection="Inherit" enabled="true"
+						visible="true" iconDensityAware="false" key="PeseeIncomplete"></IconTabFilter>
+					<IconTabFilter iconColor="Default" text="Dispo Complète" count="0" design="Vertical" showAll="false" textDirection="Inherit" enabled="true"
+						visible="true" iconDensityAware="false" key="DispoComplete"></IconTabFilter>
+					<IconTabFilter iconColor="Default" text="Dispo Incomplète" count="0" design="Vertical" showAll="false" textDirection="Inherit"
+						enabled="true" visible="true" iconDensityAware="false" key="DispoIncomplete"></IconTabFilter>
+				</items>
+				<content/>
+			</IconTabBar>
+			<Table id="table" width="auto" noDataText="Aucun Ordre" mode="None" showSeparators="All" growing="true" growingThreshold="20"
+				growingScrollToLoad="true" class="sapUiResponsiveMargin" items="{path:'orderHeaderModel>/OrderHeader', templateShareable:true}"
+				sticky="ColumnHeaders">
+				<!--<headerToolbar>
+					<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
+						<content>
+							<Title text="Ordres" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+							<ToolbarSpacer width=""/>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>-->
+				<columns>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<Label text="Numéro OF" width="auto"/>
+					</Column>
+					<Column width="340px" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<Label text="Article Fabriqué" width="auto"/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="WithoutHeader"
+						mergeDuplicates="false">
+						<Label text="Disponible" width="auto" tooltip="Stock pesée + Prepa Avancée"/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="WithoutHeader"
+						mergeDuplicates="false">
+						<Label text="Physique" width="auto" tooltip="Stock palettier et Frigo"/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="WithoutHeader"
+						mergeDuplicates="false">
+						<Label text="Qualité" width="auto"/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Block" mergeDuplicates="false">
+						<Label text="Date Besoin" width="auto"/>
+					</Column>
+					<Column width="auto" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<Label text="Avancement" width="auto"/>
+					</Column>
+					<Column width="32px" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<Label text="Status" width="auto"/>
+					</Column>
+					<Column width="32px" hAlign="Right" vAlign="Top" minScreenWidth="Phone" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<Label text="Priorité" width="auto"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active" press="_onRowPress3">
+						<cells>
+							<Text text="{path: 'orderHeaderModel>OrderNumber', formatter: '.formatter.removeZeros'}" width="auto" maxLines="1" wrapping="false"
+								textAlign="Begin" class="boldText" textDirection="Inherit" visible="true"/>
+							<Text
+								text="{path: 'orderHeaderModel>MaterialNumber', formatter: '.formatter.removeZeros'} - {path: 'orderHeaderModel>MaterialDescription', formatter: '.formatter.removeZeros'}"
+								width="340px" maxLines="1" wrapping="true" textAlign="Begin" textDirection="Inherit" visible="true"/>
+							<Text text="{path: 'orderHeaderModel>AvailableStock', formatter: '.formatter.percentage'}" width="auto" maxLines="1" wrapping="false"
+								textAlign="Begin" textDirection="Inherit" visible="true"/>
+							<Text text="{path: 'orderHeaderModel>PhysicalStock', formatter: '.formatter.percentage'}" width="auto" maxLines="1" wrapping="false"
+								textAlign="Begin" textDirection="Inherit" visible="true"/>
+							<Text text="{path: 'orderHeaderModel>QualityStock', formatter: '.formatter.percentage'}" width="auto" maxLines="1" wrapping="false"
+								textAlign="Begin" textDirection="Inherit" visible="true"/>
+							<Text text="{path: 'orderHeaderModel>StartDateOperation', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}"
+								width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+							<Text text="{path: 'orderHeaderModel>AlreadyPickedComponents', formatter: '.formatter.percentage'}" width="auto" maxLines="1"
+								wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+							<core:Icon src="sap-icon://{path:'orderHeaderModel>progressionStatus', formatter:'.formatter.statusIcon'}" size="32px" height="32px"
+								width="32px" color="{path:'orderHeaderModel>progressionStatus', formatter:'.formatter.statusColor'}"
+								hoverColor="{path:'orderHeaderModel>progressionStatus', formatter:'.formatter.statusColor'}" visible="true"/>
+							<Text text="{orderHeaderModel>Priority}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+				<content/>
+			</OverflowToolbar>
+		</footer>
+		<headerContent/>
+		<subHeader/>
+		<customHeader/>
+	</Page>
+</mvc:View>

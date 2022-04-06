@@ -1,0 +1,43 @@
+{
+  "welcomeFile": "index.html",
+  "routes": [
+    {
+      "path": "/sap/opu/odata",
+      "target": {
+        "type": "destination",
+        "name": "MAD_002",
+        "entryPath": "/sap/opu/odata"
+      },
+      "description": "MAD - Client 002"
+    },
+    {
+      "path": "/sap/bc/ui5_ui5",
+      "target": {
+        "type": "destination",
+        "name": "MAD_001",
+        "entryPath": "/sap/bc/ui5_ui5"
+      },
+      "description": "MAD - Client 001"
+    },
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/resources",
+        "version": "1.56.7"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources",
+        "version": "1.56.7"
+      },
+      "description": "SAPUI5 Test Resources"
+    }
+  ]
+}

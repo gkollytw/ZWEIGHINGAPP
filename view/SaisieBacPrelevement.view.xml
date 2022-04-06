@@ -1,0 +1,85 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.ms.pp.Weighing.controller.SaisieBacPrelevement" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt">
+	<Page showHeader="true" title="Saisie Bac de Prélèvement" showFooter="true" showNavButton="false" enableScrolling="false">
+		<content>
+			<!--<tnt:ToolHeader height="6rem" style="Clear">
+				<Image src="{imageModel>/path}/img/logo_ms_cosmetics.png" width="5rem" class='imgBackground'></Image>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+				<Text text="Saisie Bac de Prélèvement" wrapping="false" class='textTitle'></Text>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+			</tnt:ToolHeader>-->
+			<VBox fitContainer="true">
+				<ObjectHeader binding="{orderHeaderModel>}" responsive="true"
+					title="Ordre : {path: 'orderHeaderModel>OrderNumber', formatter: '.formatter.removeZeros'}"
+					intro="Article : {path: 'orderHeaderModel>MaterialNumber', formatter: '.formatter.removeZeros'} - {path: 'orderHeaderModel>MaterialDescription'}"
+					fullScreenOptimized="true" backgroundDesign="Translucent" id="idHeaderOrder"
+					number="{path: 'orderHeaderModel>OrderQuantity', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }} {path: 'orderHeaderModel>UOM'}">
+					<attributes>
+						<ObjectAttribute title="" text="{path: 'orderHeaderModel>MRPController'}" active="false" visible="true"/>
+						<ObjectAttribute title="" text="{path: 'orderHeaderModel>Plant'}" active="false" visible="true"/>
+						<ObjectAttribute title="Début Ordre"
+							text="{path: 'orderHeaderModel>StartDateOrder', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}"
+							active="false" visible="true"/>
+						<ObjectAttribute title="Fin"
+							text="{path: 'orderHeaderModel>EndDateOrder', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" active="false"
+							visible="true"/>
+						<ObjectAttribute title="Début Opé."
+							text="{path: 'orderHeaderModel>StartDateOperation', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}"
+							active="false" visible="true"/>
+						<ObjectAttribute title="Fin"
+							text="{path: 'orderHeaderModel>EndDateOperation', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}"
+							active="false" visible="true"/>
+					</attributes>
+				</ObjectHeader>
+				<ObjectHeader class="HeaderComponent"
+					title="Composant : {path: 'orderComponentModel>MaterialNumber', formatter: '.formatter.removeZeros'} - {orderComponentModel>MaterialDescription}"
+					icon="sap-icon://{path: 'orderComponentModel>progressionStatus', formatter: '.formatter.statusIcon'}" id="idHeaderComponent"
+					number="{path: 'orderComponentModel>QuantityRequired', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }} {path: 'orderComponentModel>UOM'}">
+					<!--<attributes>
+						<ObjectAttribute title="UM Bac de prélèvement" text="{orderComponentModel>PickingHU}" active="false" visible="true"/>
+					</attributes>-->
+					<statuses>
+						<ObjectStatus title="Déjà Pesé"
+							text="{path: 'orderComponentModel>QuantityAlreadyPicked', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }}"
+							state="{path:'orderComponentModel>progressionStatus', formatter: '.formatter.valueState'}" visible="true"/>
+						<ObjectStatus title="Stock Disponible"
+							text="{path: 'orderComponentModel>QuantityAvailableNoOF', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }}"
+							state="{path:'orderComponentModel>progressionStatus', formatter: '.formatter.valueState'}" visible="true"/>
+						<ObjectStatus title="Stock Physique"
+							text="{path: 'orderComponentModel>QuantityPhysical', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }}"
+							state="{path:'orderComponentModel>progressionStatus', formatter: '.formatter.valueState'}"
+							visible="{path: 'orderComponentModel>', formatter: '.formatter.stockVisibility'}"/>
+						<ObjectStatus title="Stock Qualité"
+							text="{path: 'orderComponentModel>QuantityQuality', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }}"
+							state="{path:'orderComponentModel>progressionStatus', formatter: '.formatter.valueState'}"
+							visible="{path: 'orderComponentModel>', formatter: '.formatter.stockVisibility'}"/>
+					</statuses>
+				</ObjectHeader>
+				<VBox alignItems="Center" justifyContent="Center">
+					<items>
+						<Title class="sapUiSmallMarginTopBottom" text="Numéro du Bac de prélèvement (Scan) :" titleStyle="H1" width="auto" textAlign="Begin"
+							visible="true" wrapping="false"/>
+						<Input class="sapUiSmallMarginTopBottom" id="idPickHuNumber" placeholder="Bac de Prélèvement" type="Text" showValueHelp="false"
+							enabled="true" visible="true" width="auto" valueHelpOnly="false" required="true" valueStateText="Saisie du bac de prélèvement requis"
+							maxLength="0"/>
+						<Text width="100%" textAlign="Center" text="Posez le bac sur la balance puis appuyez sur le Bouton Tare"
+							class="emphasisText sapUiSmallMarginTopBottom"/>
+					</items>
+				</VBox>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar height="70px" class="toolbar">
+				<content>
+					<Button class="bigBtn sapUiTinyMarginBegin" text="Interrompre la pesée" type="Reject" iconFirst="true" icon="sap-icon://cancel" width="auto"
+						enabled="true" visible="true" iconDensityAware="false" press="_onArretPeseePress"/>
+					<ToolbarSpacer/>
+					<Button class="bigBtn sapUiTinyMarginEnd" text="Continuer" type="Accept" icon="sap-icon://navigation-right-arrow" iconFirst="true"
+						width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onContinuerPress"/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,178 @@
+/*.imgBackground {
+    background-color: white;
+}
+
+.textTitle {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+
+.bigIcon {
+    font-size: 5rem !important;
+}
+
+.headerCustomClass {
+    margin-left: 6rem;
+    min-height: 6rem;
+}*/
+
+.sapMObjStatusIcon>.sapUiIcon {
+    font-size: 5rem;
+    vertical-align: middle;
+    line-height: inherit;
+}
+
+.bigBtn .sapMBtnInner.sapMBtnText {
+    display: flex;
+    height: 120%;
+    text-align: center;
+    text-indent: inherit;
+    text-align-last: center;
+    padding-left: 3rem;
+    padding-right: 2rem;
+    vertical-align: middle;
+    padding-top: 0.3rem;
+    font-size: 1.5rem;
+}
+
+.bigBtn .sapMBtnInner.sapMBtnText>.sapMBtnIcon {
+    padding-top: 0.2rem;
+    padding-left: 0.5rem;
+}
+
+.toolbar {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+}
+
+.adjustmentWithButton {
+    padding-top: 4px;
+    height: 44px;
+}
+
+.loaderPosition {
+    position: inherit;
+}
+
+.sapUiBlockLayoutSizeL:not(.sapUiBlockLayoutKeepFontSize) .sapUiBlockCellContent {
+    padding: 2rem 0.5rem!important;
+}
+
+.sapUiBlockLayoutSizeL:not(.sapUiBlockLayoutKeepFontSize) .noPadding .sapUiBlockCellContent {
+    padding: 0.5rem 0.5rem!important;
+}
+
+.emphasisText {
+    font-size: 1.3rem;
+}
+
+.italic {
+    font-style: italic;
+    padding-top: 16px;
+    font-size: 1.3rem;
+}
+
+.sapMOHIcon .sapUiIcon.statusColorGreen {
+    color: green;
+}
+
+.sapMOHIcon .sapUiIcon.statusColorYellow {
+    color: #ffca00;
+}
+
+.sapMOHIcon .sapUiIcon.statusColorRed {
+    color: red;
+}
+
+.sapMOHIcon .sapUiIcon.statusColorBlack {
+    color: black;
+}
+
+.sapMListTbl .sapMText {
+    font-size: 1.1rem;
+}
+
+.sapMListTbl .sapMText.boldText {
+    font-weight: bold;
+}
+
+.sapMOHRIntro .sapMText {
+    font-size: 1.3rem;
+}
+
+.sapMObjStatus>.sapMObjStatusTitle,
+.sapMObjStatus>.sapMObjStatusText {
+    font-size: 1.2rem;
+}
+
+.sapMOH.HeaderComponent .sapMOHAttr .sapMObjectAttributeTitle,
+.sapMOH.HeaderComponent .sapMOHAttr .sapMObjectAttributeColon,
+.sapMOH.HeaderComponent .sapMOHAttr .sapMObjectAttributeText {
+    font-size: 1.3rem;
+}
+
+.sapMOH.HeaderComponent .sapMOHAttr .sapMObjectAttributeText {
+    font-weight: bold;
+}
+
+.ListComponent.sapMOH.sapMOHBgSolid {
+    background-color: #eff9ef;
+}
+
+.sapMOH .sapMOHAttr .attr_refrigerated .sapMObjectAttributeText {
+    font-size: 1.3rem;
+}
+
+.sapMMessageToast {
+    font-size: 1.5rem;
+}
+
+.HeaderComponent.sapMOH {
+    padding: 0.8rem 3rem;
+}
+
+.titleScale,
+.fieldScale {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+html.sap-desktop .popupWeighingChoice.sapMDialog {
+    min-width: 38rem;
+}
+
+.popupWeighingChoice .sapMIBar .sapMBarChild {
+    margin-left: 1.2rem;
+}
+
+.ListComponent .sapMOHRStatus {
+    text-align: right;
+    width: 100%;
+}
+
+
+/*.numberAlignRight {
+    text-align: right;
+    width: 100%;
+}*/
+
+.ListComponent .sapMITBFilterIcon {
+    border: none;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+
+.ListComponent .sapMITH {
+    box-shadow: none;
+    background-color: transparent;
+    border-bottom: none;
+    border-top: none;
+}
+
+.ListComponent .sapMOHR.sapMOHRBgTransparent {
+    box-shadow: none;
+}

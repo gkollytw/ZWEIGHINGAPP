@@ -1,0 +1,33 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.ms.pp.Weighing.controller.DestructionComposant" xmlns="sap.m"
+	xmlns:l="sap.ui.layout">
+	<Page showHeader="true" title="Destruction Composant" showFooter="true" showNavButton="false" enableScrolling="false" xmlns:tnt="sap.tnt">
+		<content>
+			<!--<tnt:ToolHeader height="6rem" style="Clear">
+				<Image src="{imageModel>/path}/img/logo_ms_cosmetics.png" width="5rem" class='imgBackground'></Image>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+				<Text text="Destruction Composant" wrapping="false" class='textTitle'></Text>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+			</tnt:ToolHeader>-->
+			<VBox fitContainer="true">
+				<VBox alignItems="Center" justifyContent="Center" height="100%">
+					<items>
+						<Title text="Confirmez-vous la destruction du composant ?" titleStyle="H1" width="100%" textAlign="Center" visible="true" wrapping="false"/>
+					</items>
+				</VBox>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar height="70px" class="toolbar">
+				<content>
+					<Button class="bigBtn" text="Non" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+						press="_onNonConfirmeDestructionPress"/>
+					<ToolbarSpacer/>
+					<Button class="bigBtn" text="Oui" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+						press="_onConfirmeDestructionPress"/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

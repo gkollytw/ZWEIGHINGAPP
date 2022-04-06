@@ -1,0 +1,128 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.ms.pp.Weighing.controller.ListeComposants" xmlns="sap.m" xmlns:l="sap.ui.layout"
+	afterRendering="onAfterRendering">
+	<Page showHeader="true" title="Liste des composants" showFooter="true" showNavButton="false" enableScrolling="true"
+		navButtonPress="_onPageNavButtonPress" xmlns:tnt="sap.tnt">
+		<content>
+			<!--<tnt:ToolHeader height="6rem" style="Clear">
+				<Image src="{imageModel>/path}/img/logo_ms_cosmetics.png" width="5rem" class='imgBackground'></Image>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+				<Text text="Liste des composants" wrapping="false" class='textTitle'></Text>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+			</tnt:ToolHeader>-->
+			<VBox fitContainer="true">
+				<!--<Title class="italic" text="Etape : Liste des composants" textAlign="Center" level="H1" width="100%"/>-->
+				<!--icon="sap-icon://{path:'orderHeaderModel>progressionStatus', formatter:'.formatter.statusIcon', change:'.onIconHeaderChanged'}"-->
+				<ObjectHeader binding="{orderHeaderModel>}" responsive="true" id="idHeaderOrder"
+					title="Numéro d'ordre : {path: 'orderHeaderModel>OrderNumber', formatter: '.formatter.removeZeros'}"
+					intro="Article fabriqué : {path: 'orderHeaderModel>MaterialNumber', formatter: '.formatter.removeZeros'} - {path: 'orderHeaderModel>MaterialDescription'}"
+					fullScreenOptimized="true" backgroundDesign="Translucent"
+					number="{path: 'orderHeaderModel>OrderQuantity', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }} {path: 'orderHeaderModel>UOM'}">
+					<attributes>
+						<ObjectAttribute title="Gestionnaire" text="{path: 'orderHeaderModel>MRPController'}" active="false" visible="true"/>
+						<ObjectAttribute title="Division" text="{path: 'orderHeaderModel>Plant'}" active="false" visible="true"/>
+						<ObjectAttribute title="Début Ordre"
+							text="{path: 'orderHeaderModel>StartDateOrder', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}"
+							active="false" visible="true"/>
+						<ObjectAttribute title="Fin Ordre"
+							text="{path: 'orderHeaderModel>EndDateOrder', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" active="false"
+							visible="true"/>
+						<ObjectAttribute title="Début Opé."
+							text="{path: 'orderHeaderModel>StartDateOperation', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}"
+							active="false" visible="true"/>
+						<ObjectAttribute title="Fin Opé."
+							text="{path: 'orderHeaderModel>EndDateOperation', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}"
+							active="false" visible="true"/>
+						<ObjectAttribute title="" text="" active="false" visible="true"/>
+						<ObjectAttribute title="" text="" active="false" visible="true"/>
+					</attributes>
+					<!--<statuses class="bigIcon">
+						<ObjectStatus icon="sap-icon://{path:'orderHeaderModel>progressionStatus', formatter:'.formatter.statusIcon'}"
+							state="{path:'orderHeaderModel>progressionStatus', formatter:'.formatter.valueState'}" visible="true"
+							class="bigIcon sapMObjStatusIcon sapUiIcon"/>
+					</statuses>-->
+				</ObjectHeader>
+				<List id="listComposants" showUnread="true" rememberSelections="false" mode="None" headerText="" footerText="" backgroundDesign="Solid"
+					showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true" visible="true" includeItemInSelection="true"
+					items="{path:'orderHeaderModel>OrderComponentSet/results'}" updateFinished="onUpdateFinished" class="ListComponent">
+					<items>
+						<CustomListItem type="Inactive">
+							<content>
+								<ObjectHeader class="ListComponent" responsive="true"
+									backgroundDesign="{path: 'orderHeaderModel>', formatter: '.formatter.backgroundDesignComponent'}"
+									title="{path: 'orderHeaderModel>MaterialNumber', formatter: '.formatter.removeZeros'} - {orderHeaderModel>MaterialDescription}"
+									icon="sap-icon://{path: 'orderHeaderModel>progressionStatus', formatter: '.formatter.statusIcon'}"
+									number="Besoin Total: {path: 'orderHeaderModel>QuantityRequired', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }} {path: 'orderHeaderModel>UOM'}">
+									<attributes>
+										<ObjectAttribute text="{orderHeaderModel>StockControlIndicator}" active="false" class="attr_refrigerated" visible="true"/>
+										<ObjectAttribute text=" " active="false" class="attr_refrigerated" visible="true"/>
+										<ObjectAttribute text=" " active="false" class="attr_refrigerated" visible="true"/>
+										<ObjectAttribute text=" " active="false" class="attr_refrigerated" visible="true"/>
+										<!--<ObjectAttribute visible="true">
+											<customContent>
+												<ColumnListItem cells="{path: 'orderHeaderModel>PictogramsArray'}">
+													<cells>
+														<Image src="{path: '>'}"></Image>
+													</cells>
+												</ColumnListItem>
+											</customContent>
+										</ObjectAttribute>-->
+										<!--<ObjectAttribute>
+											<customContent>
+												<
+											</customContent>
+										</ObjectAttribute>-->
+									</attributes>
+									<statuses>
+										<ObjectStatus title="Déjà Pesé"
+											text="{path: 'orderHeaderModel>QuantityAlreadyPicked', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }} {path: 'orderHeaderModel>UOM'}"
+											state="{path:'orderHeaderModel>progressionStatus', formatter: '.formatter.valueState'}" visible="true"/>
+										<ObjectStatus title="Restant à peser"
+											text="{path: 'orderHeaderModel>QuantityToWeight', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }} {path: 'orderHeaderModel>UOM'}"
+											state="{path:'orderHeaderModel>progressionStatus', formatter: '.formatter.valueState'}" visible="true"/>
+										<ObjectStatus title="Stock Disponible"
+											text="{path: 'orderHeaderModel>QuantityAvailableNoOF', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }} {path: 'orderHeaderModel>UOM'}"
+											state="{path:'orderHeaderModel>progressionStatus', formatter: '.formatter.valueState'}"
+											visible="{= ${orderHeaderModel>IsWeighted} !== '' ? false:true}"/>
+										<ObjectStatus title="Stock Physique"
+											text="{path: 'orderHeaderModel>QuantityPhysical', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }} {path: 'orderHeaderModel>UOM'}"
+											state="{path:'orderHeaderModel>progressionStatus', formatter: '.formatter.valueState'}"
+											visible="{path: 'orderHeaderModel>', formatter: '.formatter.stockVisibility'}"/>
+										<ObjectStatus title="Stock Qualité"
+											text="{path: 'orderHeaderModel>QuantityQuality', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 3 }} {path: 'orderHeaderModel>UOM'}"
+											state="{path:'orderHeaderModel>progressionStatus', formatter: '.formatter.valueState'}"
+											visible="{path: 'orderHeaderModel>', formatter: '.formatter.stockVisibility'}"/>
+									</statuses>
+									<headerContainer>
+										<IconTabBar backgroundDesign="Solid" enableTabReordering="false" items="{orderHeaderModel>PictogramsArray}" expandable="false"
+											expanded="false">
+											<!-- -->
+											<items>
+												<IconTabFilter icon="{imageModel>/path}/icons/{orderHeaderModel>}"/>
+												<IconTabFilter icon="{imageModel>/path}/icons/{orderHeaderModel>}"/>
+												<!--<IconTabFilter icon="icons/{orderHeaderModel>}"/>-->
+											</items>
+										</IconTabBar>
+									</headerContainer>
+								</ObjectHeader>
+								<!--<List items="{path: 'orderHeaderModel>PictogramsArray'}"></List>-->
+							</content>
+						</CustomListItem>
+					</items>
+				</List>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar height="70px" class="toolbar">
+				<content>
+					<Button class="bigBtn" text="Annuler" type="Reject" icon="sap-icon://navigation-left-arrow" iconFirst="true" width="auto" enabled="true"
+						visible="true" iconDensityAware="false" press="_onAnnulerPress"/>
+					<ToolbarSpacer/>
+					<Button class="bigBtn" text="Commencer" type="Accept" icon="sap-icon://navigation-right-arrow" iconFirst="true" width="auto" enabled="true"
+						visible="true" iconDensityAware="false" press="_onCommencerPress"/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

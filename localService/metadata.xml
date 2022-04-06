@@ -1,0 +1,49 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="398c95866ef5440611c3b8c5" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="398c95866ef5440611c3b8c5_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Sheet1Set" EntityType="398c95866ef5440611c3b8c5.Sheet1" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="CompoListSet" EntityType="398c95866ef5440611c3b8c5.CompoList" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="ListeOFSet" EntityType="398c95866ef5440611c3b8c5.ListeOF" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+            </EntityContainer>
+            <EntityType Name="Sheet1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Numero_OF" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Numero_OF"/>
+                <Property Name="Disponibilite_MP" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Disponibilite_MP"/>
+                <Property Name="Date_Besoin" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="Date_Besoin"/>
+                <Property Name="Priorite" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Priorite"/>
+                <Property Name="Avancement" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Avancement"/>
+            </EntityType>
+            <EntityType Name="CompoList">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="MATNR" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="MATNR"/>
+                <Property Name="MaterialDescription" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="MaterialDescription"/>
+                <Property Name="QuantityRequired" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="QuantityRequired"/>
+                <Property Name="Unit" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Unit"/>
+                <Property Name="QuantityAvailable" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="QuantityAvailable"/>
+                <Property Name="QuantityAlreadyPicked" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="QuantityAlreadyPicked"/>
+                <Property Name="Status" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Status"/>
+                <Property Name="StatusColor" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="StatusColor"/>
+            </EntityType>
+            <EntityType Name="ListeOF">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Numero_OF" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Numero_OF"/>
+                <Property Name="Description_Article" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Description_Article"/>
+                <Property Name="Disponibilite_MP" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Disponibilite_MP"/>
+                <Property Name="Date_Besoin" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="Date_Besoin"/>
+                <Property Name="Avancement" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Avancement"/>
+                <Property Name="Priorite" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Priorite"/>
+                <Property Name="Status" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Status"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

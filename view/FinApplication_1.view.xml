@@ -1,0 +1,31 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.ms.pp.Weighing.controller.FinApplication_1" xmlns="sap.m" xmlns:l="sap.ui.layout">
+	<Page showHeader="false" title="" showFooter="true" showNavButton="false" enableScrolling="false" xmlns:tnt="sap.tnt">
+		<content>
+			<tnt:ToolHeader height="6rem" style="Clear">
+				<Image src="/img/logo_ms_cosmetics.png" width="5rem" class='imgBackground'></Image>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+				<Text text="Fin de la pesée" wrapping="false" class='textTitle'></Text>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+			</tnt:ToolHeader>
+			<VBox fitContainer="true">
+				<VBox alignItems="Center" justifyContent="Center" height="97%">
+					<items>
+						<Title text="Procédez au rangement du poste" titleStyle="H1" width="100%" textAlign="Center" visible="true" wrapping="false"/>
+					</items>
+				</VBox>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar height="70px" class="toolbar">
+				<content>
+					<ToolbarSpacer/>
+					<Button class="bigBtn" text="Fermer l'application" type="Accept" icon="sap-icon://decline" iconFirst="true" width="auto" enabled="true"
+						visible="true" iconDensityAware="false" press="_onButtonPress1"/>
+					
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

@@ -1,0 +1,18 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZWEIGHING_APP_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="ExecuteProcess" sap:content-version="1">
+				<Key><PropertyRef Name="Id"/></Key><Property Name="Id" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Id" sap:creatable="false" sap:updatable="false"
+					sap:sortable="false" sap:filterable="false"/><Property Name="Action" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name of the action to be done"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="Param1" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Parameter Value"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="Param2" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Parameter Value"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="Param3" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Parameter Value"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="Param4" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Parameter Value"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="Param5" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Parameter Value"
+					sap:creatable="false" sap:updatable="false" sap:sortable="false"/><Property Name="ParamNum1" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Parameter Value Num" sap:creatable="false"
+					sap:updatable="false" sap:sortable="false"/></EntityType>
+			<EntityContainer Name="ZWEIGHING_APP_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="ExecuteProcessSet" EntityType="ZWEIGHING_APP_SRV.ExecuteProcess" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:pageable="false" sap:content-version="1"/></EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZWEIGHING_APP_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZWEIGHING_APP_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

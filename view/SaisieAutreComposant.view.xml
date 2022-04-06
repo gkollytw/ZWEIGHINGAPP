@@ -1,0 +1,35 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="com.ms.pp.Weighing.controller.SaisieAutreComposant" xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt">
+	<Page showHeader="false" title="" showFooter="true" showNavButton="false" enableScrolling="false">
+		<content>
+			<tnt:ToolHeader height="6rem" style="Clear">
+				<Image src="{imageModel>/path}/img/logo_ms_cosmetics.png" width="5rem" class='imgBackground'></Image>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+				<Text text="Pesée autre composant" wrapping="false" class='textTitle'></Text>
+				<ToolbarSpacer/>
+				<ToolbarSpacer/>
+			</tnt:ToolHeader>
+			<VBox fitContainer="true">
+				<VBox alignItems="Center" justifyContent="Center" height="100%">
+					<items>
+						<Title text="Il reste des composants à peser dans cet OF." titleStyle="H1" width="100%" textAlign="Center" visible="true" wrapping="false"/>
+						<Title text="Souhaitez-vous continuer la pesée des autres composants ?" titleStyle="H1" width="100%" textAlign="Center" visible="true"
+							wrapping="false"/>
+					</items>
+				</VBox>
+			</VBox>
+		</content>
+		<footer>
+			<Toolbar height="70px" class="toolbar">
+				<content>
+					<Button class="bigBtn" text="Terminer la pesée" type="Reject" icon="sap-icon://undo" iconFirst="true" width="auto" enabled="true"
+						visible="true" iconDensityAware="false" press="_onTerminerPeseePress"/>
+					<ToolbarSpacer/>
+					<Button class="bigBtn" text="Continuer" icon="sap-icon://accept" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true"
+						iconDensityAware="false" press="_onContinuerPress"/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
